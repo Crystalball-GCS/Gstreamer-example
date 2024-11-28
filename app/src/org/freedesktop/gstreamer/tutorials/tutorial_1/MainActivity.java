@@ -6,10 +6,10 @@ import android.util.Log;
 import org.freedesktop.gstreamer.GStreamer;
 
 public class MainActivity extends Activity {
-    private native void nativeInit();  // Initialize GStreamer in native code
-    private native void nativeFinalize();  // Finalize GStreamer in native code
-    private native void nativePlay();  // Play the pipeline
-    private native void nativePause(); // Pause the pipeline
+//    private native void nativeInit();  // Initialize GStreamer in native code
+//    private native void nativeFinalize();  // Finalize GStreamer in native code
+//    private native void nativePlay();  // Play the pipeline
+//    private native void nativePause(); // Pause the pipeline
 
     private String pipeline = "udpsrc port=5600 ! application/x-rtp, payload=96 ! rtph264depay ! h264parse ! avdec_h264 ! videoconvert ! autovideosink";
 
@@ -23,15 +23,20 @@ public class MainActivity extends Activity {
             finish();
             return;
         }
-
-        nativeInit();  // Initialize the native GStreamer pipeline
+        setContentView(R.layout.main);
+//        nativeInit();  // Initialize the native GStreamer pipeline
     }
 
     @Override
     protected void onDestroy() {
-        nativeFinalize();  // Clean up resources
+//        nativeFinalize();  // Clean up resources
         super.onDestroy();
  }
+
+    static {
+        System.loadLibrary("gstreamer_android");
+        System.loadLibrary("MainActivity");
+    }
 }
 
 

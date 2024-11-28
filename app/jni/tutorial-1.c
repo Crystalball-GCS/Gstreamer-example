@@ -16,8 +16,8 @@ gst_native_get_gstreamer_info (JNIEnv * env, jobject thiz)
 }
 
 static JNINativeMethod native_methods[] = {
-  {"nativeGetGStreamerInfo", "()Ljava/lang/String;",
-      (void *) gst_native_get_gstreamer_info}
+//  {"nativeGetGStreamerInfo", "()Ljava/lang/String;",
+//      (void *) gst_native_get_gstreamer_info}
 };
 
 jint
