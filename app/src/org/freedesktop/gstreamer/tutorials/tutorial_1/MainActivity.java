@@ -35,7 +35,6 @@ public class MainActivity extends Activity {
 
     static {
         System.loadLibrary("gstreamer_android");
-        System.loadLibrary("MainActivity");
     }
 }
 
